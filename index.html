@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a1a2e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Sketch Pals</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { width:100%; height:100%; overflow:hidden; background:#1a1a2e; }
+body { font-family:sans-serif; touch-action:none; -webkit-user-select:none; user-select:none; }
+#game-container { position:relative; width:100%; height:100%; }
+canvas { display:block; }
+.toolbar { position:absolute; top:10px; left:10px; z-index:10; display:flex; gap:8px; }
+.toolbar button { padding:8px 16px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer; font-size:14px; font-weight:bold; }
+.toolbar button.eraser { background:#FF9800; }
+.toolbar button.clear { background:#f44336; }
+.toolbar button.save { background:#9C27B0; }
+.instructions { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.7); color:white; padding:8px 16px; border-radius:8px; font-size:13px; z-index:10; text-align:center; max-width:90%; }
+</style>
+</head>
+<body>
+<div id="game-container">
+  <div class="toolbar">
+    <button id="btn-pen">Stylo</button>
+    <button id="btn-brush" class="eraser">Pinceau</button>
+    <button id="btn-eraser" class="eraser">Gomme</button>
+    <button id="btn-clear" class="clear">Effacer</button>
+    <button id="btn-save" class="save">Sauver</button>
+  </div>
+  <div class="instructions">Dessine un ami et clique sur SAUVER!</div>
+</div>
+<script src="./jquery-3.3.1.min.js"></script>
+<script src="./fabric.min.js"></script>
+<script src="./tf-converter.js"></script>
+<script src="./tensorflow.js"></script>
+<script src="./game.js"></script>
+<script>
+// h5api stub
+if (typeof window.h5api === 'undefined') {
+  window.h5api = {
+    canPlayAd: cb => cb({canPlayAd: false}),
+    rewardedAdBreak: cb => cb(false),
+    gameplayStart: () => {},
+    gameplayStop: () => {}
+  };
+}
+</script>
+</body>
+</html>
